@@ -1,7 +1,6 @@
 annotated-types==0.6.0
 anyio==3.7.1
 click==8.1.7
-fastapi==0.104.1
 GeoAlchemy2==0.14.2
 geographiclib==2.0
 geopy==2.4.0
@@ -12,7 +11,7 @@ idna==3.4
 mysql-connector-python==8.2.0
 packaging==23.2
 protobuf==4.21.12
-pydantic==2.5.1
+psycopg2-binary==2.9.9
 pydantic_core==2.14.3
 python-dotenv==1.0.0
 PyYAML==6.0.1

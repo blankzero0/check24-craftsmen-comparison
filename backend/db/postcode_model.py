@@ -1,8 +1,8 @@
 from sqlalchemy import *
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import *
 
 Base = declarative_base()
+
 
 class Postcode(Base):
     __tablename__ = "postcode"
