@@ -24,5 +24,3 @@ class Craftsman(BaseModel):
     id: int = Field(alias="id")
     name: str = Field(alias="name")
     ranking_score: float = Field(alias="rankingScore")
-
-Craftsman.update_forward_refs()
