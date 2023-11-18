@@ -6,6 +6,6 @@
 import type { Craftsman } from './Craftsman';
 
 export type Response = {
-    craftsmen?: Array<Craftsman>;
+    craftsmen: Array<Craftsman>;
 };
 

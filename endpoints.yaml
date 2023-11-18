@@ -58,6 +58,10 @@ components:
           type: string
         rankingScore:
           type: number
+      required:
+        - id
+        - name
+        - rankingScore
 
     Response:
       type: object
@@ -66,6 +70,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Craftsman'
+      required:
+        - craftsmen
 
     PatchRequest:
       type: object
@@ -94,3 +100,10 @@ components:
               type: number
             profileDescriptionScore:
               type: number
+          required:
+            - maxDrivingDistance
+            - profilePictureScore
+            - profileDescriptionScore
+      required:
+        - id
+        - updated

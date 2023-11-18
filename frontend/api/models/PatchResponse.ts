@@ -4,11 +4,11 @@
 /* eslint-disable */
 
 export type PatchResponse = {
-    id?: number;
-    updated?: {
-        maxDrivingDistance?: number;
-        profilePictureScore?: number;
-        profileDescriptionScore?: number;
+    id: number;
+    updated: {
+        maxDrivingDistance: number;
+        profilePictureScore: number;
+        profileDescriptionScore: number;
     };
 };
 
