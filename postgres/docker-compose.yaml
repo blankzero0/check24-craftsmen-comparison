@@ -2,9 +2,11 @@ version: "3.8"
 
 services:
   postgres:
-    build: .
+    image: postgis/postgis:latest
     volumes:
       - ./data:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d
     ports:
       - "5432:5432"
-    env_file: postgres.env
+    env_file:
+      - postgres.env
