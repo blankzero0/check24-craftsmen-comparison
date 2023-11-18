@@ -1,0 +1,139 @@
+openapi: 3.0.0
+info:
+  title: Craftsmen Service API
+  version: 1.0.0
+servers:
+- url: http://localhost:3000
+paths:
+  /craftsmen:
+    get:
+      parameters:
+      - description: Postal code to filter craftsmen
+        explode: true
+        in: query
+        name: postalcode
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+          description: List of craftsmen
+      summary: Retrieves a list of craftsmen based on postal code
+  /craftman/{craftman_id}:
+    patch:
+      parameters:
+      - description: Unique ID of the craftsman
+        explode: false
+        in: path
+        name: craftman_id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchResponse'
+          description: Craftsman updated successfully
+      summary: Updates a craftsman's profile information
+components:
+  schemas:
+    Craftsman:
+      example:
+        rankingScore: 6.027456183070403
+        name: name
+        id: 0
+      properties:
+        id:
+          title: id
+          type: integer
+        name:
+          title: name
+          type: string
+        rankingScore:
+          title: rankingScore
+          type: number
+      title: Craftsman
+      type: object
+    Response:
+      example:
+        craftsmen:
+        - rankingScore: 6.027456183070403
+          name: name
+          id: 0
+        - rankingScore: 6.027456183070403
+          name: name
+          id: 0
+      properties:
+        craftsmen:
+          items:
+            $ref: '#/components/schemas/Craftsman'
+          title: craftsmen
+          type: array
+      title: Response
+      type: object
+    PatchRequest:
+      example:
+        profilePictureScore: 6.027456183070403
+        profileDescriptionScore: 1.4658129805029452
+        maxDrivingDistance: 0.8008281904610115
+      properties:
+        maxDrivingDistance:
+          nullable: true
+          title: maxDrivingDistance
+          type: number
+        profilePictureScore:
+          nullable: true
+          title: profilePictureScore
+          type: number
+        profileDescriptionScore:
+          nullable: true
+          title: profileDescriptionScore
+          type: number
+      title: PatchRequest
+      type: object
+    PatchResponse:
+      example:
+        id: 0
+        updated:
+          profilePictureScore: 1.4658129805029452
+          profileDescriptionScore: 5.962133916683182
+          maxDrivingDistance: 6.027456183070403
+      properties:
+        id:
+          title: id
+          type: integer
+        updated:
+          $ref: '#/components/schemas/PatchResponse_updated'
+      title: PatchResponse
+      type: object
+    PatchResponse_updated:
+      example:
+        profilePictureScore: 1.4658129805029452
+        profileDescriptionScore: 5.962133916683182
+        maxDrivingDistance: 6.027456183070403
+      properties:
+        maxDrivingDistance:
+          title: maxDrivingDistance
+          type: number
+        profilePictureScore:
+          title: profilePictureScore
+          type: number
+        profileDescriptionScore:
+          title: profileDescriptionScore
+          type: number
+      title: PatchResponse_updated
+      type: object
