@@ -1,6 +1,6 @@
 import React from 'react';
 import HeaderBar from "../components/HeaderBar";
-import SearchForm from "../SearchForm";
+import SearchForm from "../components/SearchForm";
 
 function Root() {
   return (
