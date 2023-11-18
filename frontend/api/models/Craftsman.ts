@@ -4,8 +4,8 @@
 /* eslint-disable */
 
 export type Craftsman = {
-    id?: number;
-    name?: string;
-    rankingScore?: number;
+    id: number;
+    name: string;
+    rankingScore: number;
 };
 
