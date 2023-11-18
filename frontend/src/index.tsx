@@ -4,8 +4,8 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Root from "./routes/root";
-import Listing, {loader as listingLoader} from "./routes/listing";
 import Error from "./components/Error";
+import Listing from "./routes/listing";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
   {
     path: '/listing',
     element: <Listing/>,
-    loader: listingLoader,
+    errorElement: <Error/>,
   },
 ])
 

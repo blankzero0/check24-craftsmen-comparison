@@ -8,7 +8,7 @@ type Props = {
 
 function CraftsmanCard({craftsman}: Props) {
   return (
-    <ul key={craftsman.id} className='card ps-0 overflow-hidden'>
+    <li className='card ps-0 overflow-hidden'>
       <div className='card-body d-flex'>
         <img src={defaultProfile} alt='Profilbild' width='100px' height='100px' className='me-3' />
         <div>
@@ -16,7 +16,7 @@ function CraftsmanCard({craftsman}: Props) {
           <p>[score = {craftsman.rankingScore}]</p>
         </div>
       </div>
-    </ul>
+    </li>
   );
 }
 
