@@ -1,10 +1,16 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
+import os
+from pathlib import Path
 
-import config
 from postcode_model import *
+from quality_factor_score_model import *
 
-conn_string = f"mysql+mysqlconnector://{config.DB_USERNAME}:{config.DB_PASSWORD}@{config.DB_ADDRESS}/{config.DB_DATABASE}"
+dotenv_path = Path('mysql/mysql.env')
+load_dotenv(dotenv_path=dotenv_path)
+
+conn_string = f"mysql+mysqlconnector://{os.getenv('MYSQL_USER')}:{os.getenv('MYSQL_PASSWORD')}@localhost/{os.getenv('MYSQL_DATABASE')}"
 
 engine = create_engine(conn_string)
 conn = engine.connect()
