@@ -2,21 +2,13 @@ version: "3.6"
 
 services:
   backend:
-    container_name: craftman_backend
-    build:
-      context: ./backend/
-      target: service
+    build: backend
     ports:
-      - "8080:8080"
-    command: uvicorn openapi_server.main:app --host 0.0.0.0 --port 8080
+      - "80:80"
 
   mysql:
-    build:
-      context: mysql/
-    container_name: craftman_mysql
+    build: mysql
     env_file:
       - ./mysql/mysql.env
-    ports:
-      - "3306:3306"
     volumes:
       - ./mysql/data:/var/lib/mysql
