@@ -1,5 +1,4 @@
 import React from 'react';
-import './SearchForm.css'
 import {Form} from "react-router-dom";
 
 function SearchForm() {
@@ -23,7 +22,7 @@ function SearchForm() {
         <input type='text' id='plz' name='plz' inputMode='numeric' minLength={5} maxLength={5} autoComplete='postal-code' required className='form-control' onChange={handleInputChange}/>
         <label htmlFor='plz' className='form-label'>Ihre PLZ</label>
       </div>
-      <button className='btn btn-primary py-3'>SUCHEN</button>
+      <button className='btn btn-primary py-3 rounded-pill'>SUCHEN</button>
     </Form>
   );
 }
