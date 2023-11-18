@@ -11,7 +11,7 @@ function HeaderBar() {
   };
 
   return (
-    <header className='text-white py-4 mb-2' style={{backgroundColor: '#063773'}}>
+    <header className='text-white py-4 mb-4' style={{backgroundColor: '#063773'}}>
       <h1 className='container mb-0'>
         <Link to='/'><img src={logo} alt='CHECK24 Logo' height='24px' className='me-3' /></Link>
         <span className="header-title fs-3">Handwerkervergleich</span>
