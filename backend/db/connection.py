@@ -11,3 +11,11 @@ conn = engine.connect()
 
 Session = sessionmaker(bind=conn)
 session = Session()
+
+# TEST CODE
+"""
+print("SELECT ALL")
+postcode = session.query(Postcode).all()
+for p in postcode:
+    print(p)
+"""
