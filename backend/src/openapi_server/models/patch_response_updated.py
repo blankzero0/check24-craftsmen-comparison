@@ -16,13 +16,13 @@ class PatchResponseUpdated(BaseModel):
 
     PatchResponseUpdated - a model defined in OpenAPI
 
-        max_driving_distance: The max_driving_distance of this PatchResponseUpdated [Optional].
-        profile_picture_score: The profile_picture_score of this PatchResponseUpdated [Optional].
-        profile_description_score: The profile_description_score of this PatchResponseUpdated [Optional].
+        max_driving_distance: The max_driving_distance of this PatchResponseUpdated.
+        profile_picture_score: The profile_picture_score of this PatchResponseUpdated.
+        profile_description_score: The profile_description_score of this PatchResponseUpdated.
     """
 
-    max_driving_distance: Optional[float] = Field(alias="maxDrivingDistance", default=None)
-    profile_picture_score: Optional[float] = Field(alias="profilePictureScore", default=None)
-    profile_description_score: Optional[float] = Field(alias="profileDescriptionScore", default=None)
+    max_driving_distance: float = Field(alias="maxDrivingDistance")
+    profile_picture_score: float = Field(alias="profilePictureScore")
+    profile_description_score: float = Field(alias="profileDescriptionScore")
 
 PatchResponseUpdated.update_forward_refs()

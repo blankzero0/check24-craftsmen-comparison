@@ -17,11 +17,11 @@ class PatchResponse(BaseModel):
 
     PatchResponse - a model defined in OpenAPI
 
-        id: The id of this PatchResponse [Optional].
-        updated: The updated of this PatchResponse [Optional].
+        id: The id of this PatchResponse.
+        updated: The updated of this PatchResponse.
     """
 
-    id: Optional[int] = Field(alias="id", default=None)
-    updated: Optional[PatchResponseUpdated] = Field(alias="updated", default=None)
+    id: int = Field(alias="id")
+    updated: PatchResponseUpdated = Field(alias="updated")
 
 PatchResponse.update_forward_refs()

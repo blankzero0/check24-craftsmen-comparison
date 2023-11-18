@@ -17,9 +17,9 @@ class Response(BaseModel):
 
     Response - a model defined in OpenAPI
 
-        craftsmen: The craftsmen of this Response [Optional].
+        craftsmen: The craftsmen of this Response.
     """
 
-    craftsmen: Optional[List[Craftsman]] = Field(alias="craftsmen", default=None)
+    craftsmen: List[Craftsman] = Field(alias="craftsmen")
 
 Response.update_forward_refs()

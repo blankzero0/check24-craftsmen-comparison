@@ -16,13 +16,13 @@ class Craftsman(BaseModel):
 
     Craftsman - a model defined in OpenAPI
 
-        id: The id of this Craftsman [Optional].
-        name: The name of this Craftsman [Optional].
-        ranking_score: The ranking_score of this Craftsman [Optional].
+        id: The id of this Craftsman.
+        name: The name of this Craftsman.
+        ranking_score: The ranking_score of this Craftsman.
     """
 
-    id: Optional[int] = Field(alias="id", default=None)
-    name: Optional[str] = Field(alias="name", default=None)
-    ranking_score: Optional[float] = Field(alias="rankingScore", default=None)
+    id: int = Field(alias="id")
+    name: str = Field(alias="name")
+    ranking_score: float = Field(alias="rankingScore")
 
 Craftsman.update_forward_refs()
