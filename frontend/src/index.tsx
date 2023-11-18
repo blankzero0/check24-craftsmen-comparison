@@ -7,6 +7,11 @@ import Root from "./routes/root";
 import Error from "./components/Error";
 import Listing from "./routes/listing";
 import './index.css'
+import {OpenAPI} from "./api";
+
+if (process.env.REACT_APP_API_URL) {
+  OpenAPI.BASE = process.env.REACT_APP_API_URL
+}
 
 const router = createBrowserRouter([
   {
