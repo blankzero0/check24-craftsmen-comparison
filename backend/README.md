@@ -25,7 +25,7 @@ and open your browser at `http://localhost:8080/docs/` to see the docs.
 To run the server on a Docker container, please execute the following from the root directory:
 
 ```bash
-postgres-compose up --build
+mysql-compose up --build
 ```
 
 ## Tests

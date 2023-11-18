@@ -10,11 +10,13 @@ services:
       - "8080:8080"
     command: uvicorn openapi_server.main:app --host 0.0.0.0 --port 8080
 
-  postgres:
+  mysql:
     build:
-      context: ./postgres/
-    container_name: craftman_postgres
-    ports:
-      - "5432:5432"
+      context: mysql/
+    container_name: craftman_mysql
     env_file:
-      - ./postgres/postgres.env
+      - ./mysql/mysql.env
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/data:/var/lib/mysql
