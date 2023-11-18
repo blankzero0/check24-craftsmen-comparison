@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from "../check24.svg";
+import {Link} from "react-router-dom";
 
 function HeaderBar() {
   const headerStyle = {
@@ -12,7 +13,7 @@ function HeaderBar() {
   return (
     <header className='text-white py-4 mb-2' style={{backgroundColor: '#063773'}}>
       <h1 className='container mb-0'>
-        <a href='/'><img src={logo} alt='CHECK24 Logo' height='24px' className='me-3' /></a>
+        <Link to='/'><img src={logo} alt='CHECK24 Logo' height='24px' className='me-3' /></Link>
         <span className="header-title fs-3">Handwerkervergleich</span>
       </h1>
     </header>
