@@ -23,7 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "generate-api": "openapi --input ../endpoints.yaml --output ./api"
+    "generate-api": "openapi --input ../endpoints.yaml --output ./src/api"
   },
   "eslintConfig": {
     "extends": [
