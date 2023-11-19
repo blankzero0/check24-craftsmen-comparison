@@ -1,8 +1,8 @@
 from sqlalchemy import *
 from sqlalchemy.orm import *
 
-from models.postcode import Postcode
-from models.profile import Profile
+from db.postcode import Postcode
+from db.profile import Profile
 
 Base = declarative_base()
 
