@@ -1,3 +1,12 @@
+CREATE TABLE public.postcode (
+	postcode varchar NOT NULL,
+	geog geometry(point, 4326) NULL,
+	dist_group varchar NULL,
+	CONSTRAINT postcode_pkey PRIMARY KEY (postcode)
+);
+CREATE INDEX idx_postcode_geog ON public.postcode (geog);
+
+
 INSERT INTO public.postcode (postcode,geog,dist_group) VALUES
 	 ('01067','SRID=4326;POINT (51.06 13.719)','a'),
 	 ('01069','SRID=4326;POINT (51.0384 13.7345)','a'),
