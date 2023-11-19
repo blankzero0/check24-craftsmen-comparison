@@ -2,11 +2,11 @@ from fastapi import FastAPI, Depends
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from db.connection import SessionLocal
-from db.profile import Profile
-from db.ranking import Ranking
+from db import SessionLocal
+from db.models import Profile, Ranking
 
 from models.craftsman import Craftsman
+from models.patch_response import PatchResponse
 from models.response import Response
 
 app = FastAPI()
@@ -66,5 +66,5 @@ interface PatchResponse {
 
 
 @app.patch("/craftman/{craftman_id}")
-def update_craftsman(craftman_id: int):
+def update_craftsman(craftman_id: int, db: Session = Depends(get_db)) -> PatchResponse:
     pass
