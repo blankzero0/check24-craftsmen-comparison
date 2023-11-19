@@ -15,7 +15,7 @@ services:
     environment:
       POSTGRES_DB: craftmen
     ports:
-      - "3000:80"
+      - "3000:3000"
 
   db:
     image: postgis/postgis:latest
