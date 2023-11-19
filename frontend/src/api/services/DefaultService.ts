@@ -15,17 +15,20 @@ export class DefaultService {
     /**
      * Retrieves a list of craftsmen based on postal code
      * @param postalcode Postal code to filter craftsmen
+     * @param below Only return the results with a score blow this value
      * @returns Response List of craftsmen
      * @throws ApiError
      */
     public static getCraftsmen(
         postalcode: string,
+        below?: number,
     ): CancelablePromise<Response> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/craftsmen',
             query: {
                 'postalcode': postalcode,
+                'below': below,
             },
         });
     }

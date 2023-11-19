@@ -13,7 +13,7 @@ services:
   backend:
     build: backend
     environment:
-      POSTGRES_DB: craftmen
+      POSTGRES_DB: craftsmen
     ports:
       - "3000:3000"
 
@@ -23,7 +23,7 @@ services:
       - ./postgres/sql:/docker-entrypoint-initdb.d
       - data:/var/lib/postgresql/data
     environment:
-      POSTGRES_DB: craftmen
+      POSTGRES_DB: craftsmen
       POSTGRES_HOST_AUTH_METHOD: trust
     ports:
       - "5432:5432"

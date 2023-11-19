@@ -7,5 +7,6 @@ import type { Craftsman } from './Craftsman';
 
 export type Response = {
     craftsmen: Array<Craftsman>;
+    below?: number;
 };
 

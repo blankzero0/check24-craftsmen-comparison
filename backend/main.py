@@ -11,18 +11,6 @@ from models.response import Response
 
 app = FastAPI()
 
-"""
-interface Craftsman {
-    id: number;
-    name: string; // firstname + lastname
-    rankingScore: number;
-}
-
-interface Response {
-    craftsmen: Craftsman[];
-}
-"""
-
 
 def get_db():
     db = SessionLocal()
@@ -32,8 +20,8 @@ def get_db():
         db.close()
 
 
-@app.get("/craftman")
-def get_postalcode(postalcode: str, below: float | None, db: Session = Depends(get_db)) -> Response:
+@app.get("/craftsmen")
+def get_postalcode(postalcode: str, below: float | None = None, db: Session = Depends(get_db)) -> Response:
 
     statement = (select(Profile.profile_id, Profile.first_name, Profile.last_name, Ranking.rank)
                  .join_from(Profile, Ranking)
@@ -46,7 +34,7 @@ def get_postalcode(postalcode: str, below: float | None, db: Session = Depends(g
 
     craftsmen = [Craftsman(id=row[0], name=f'{row[1]} {row[2]}', ranking_score=row[3]) for row in db.execute(statement)]
 
-    return Response(craftsmen=craftsmen, below=craftsmen[-1].ranking_score)
+    return Response(craftsmen=craftsmen, below=craftsmen[-1].ranking_score if len(craftsmen) > 0 else None)
 
 
 """
