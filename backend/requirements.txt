@@ -12,6 +12,7 @@ idna==3.4
 mysql-connector-python==8.2.0
 packaging==23.2
 protobuf==4.21.12
+psycopg2==2.9.9
 pydantic==2.5.1
 pydantic_core==2.14.3
 python-dotenv==1.0.0
