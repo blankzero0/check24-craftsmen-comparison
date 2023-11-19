@@ -11,3 +11,7 @@ class Postcode(Base):
     postcode = Column(String, primary_key=True)
     geog = Column(Geometry(geometry_type='POINT', srid=4326))
     dist_group = Column(String)
+
+    def __repr__(self):
+        return "Postcode(postcode = {}, geog = {}, dist_group = {}" \
+               .format(self.postcode, self.geog, self.dist_group)

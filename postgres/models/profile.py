@@ -18,3 +18,9 @@ class Profile(Base):
     max_driving_distance = Column(Integer)
     picture_score = Column(Float)
     description_score = Column(Float)
+
+    def __repr__(self):
+        return "Profile(profile_id={}, first_name={}, last_name={}, city={}, street={}, \
+                house_number={}, geog={}, max_driving_distance={}, picture_score={}, description_score={})" \
+                .format(self.profile_id, self.first_name, self.last_name, self.city, self.street,
+                        self.house_number, self.geog, self.max_driving_distance, self.picture_score, self.description_score)
