@@ -50,12 +50,14 @@ if __name__ == '__main__':
 
         profile_response = urlopen(profile_url)
         profile_data = json.loads(profile_response.read())
-        profile_lst = []
 
         score_response = urlopen(score_url)
         score_data = json.loads(score_response.read())
+        score_for_id = {score.id: score for score in score_data}
 
+        profile_lst = []
         for data in profile_data:
+            score = score_for_id[data['id']]
             profile_lst.append(
                 Profile(
                     profile_id=data['id'],
@@ -65,21 +67,20 @@ if __name__ == '__main__':
                     street=data['street'],
                     house_number=data['house_number'],
                     geog='POINT({} {})'.format(data['lon'], data['lat']),
-                    max_driving_distance=data['max_driving_distance']
+                    max_driving_distance=data['max_driving_distance'],
+                    picture_score=score['profile_picture_score'],
+                    description_score=score['profile_description_score'],
                 )
             )
-
-        for j, k in enumerate(score_data):
-            profile_lst[j].picture_score = k['profile_picture_score']
-            profile_lst[j].description_score = k['profile_description_score']
-
         session.add_all(profile_lst)
 
         session.commit()
 
         session.close()
 
-        sql_dump = subprocess.run(['docker', 'exec', container_id, 'pg_dump', '-U', 'postgres', 'craftsmen'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT).stdout.decode()
+        sql_dump = subprocess.run([
+            'docker', 'exec', container_id, 'pg_dump', '-U', 'postgres', 'craftsmen'
+        ], stdout=subprocess.PIPE).stdout.decode()
 
         os.makedirs('../sql', exist_ok=True)
         with open('../sql/20-data.sql', 'w') as f:
