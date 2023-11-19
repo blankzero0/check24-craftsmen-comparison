@@ -1,5 +1,8 @@
-mysql/data/
-
+# dotenvs
 *.env
 
+# Python
 **/__pycache__/
+
+# IDEA
+.idea/
