@@ -2,7 +2,7 @@ CREATE TABLE public.ranking (
 	postcode varchar NOT NULL,
 	profile_id int4 NOT NULL,
 	"rank" float8 NULL,
-	CONSTRAINT ranking_pkey PRIMARY KEY (postcode,profile_id)
+	CONSTRAINT ranking_pkey PRIMARY KEY (postcode, profile_id)
 );
 
 
