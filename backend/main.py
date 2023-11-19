@@ -33,17 +33,20 @@ def get_db():
 
 
 @app.get("/craftman")
-def get_postalcode(postalcode: str, db: Session = Depends(get_db)) -> Response:
+def get_postalcode(postalcode: str, below: float | None, db: Session = Depends(get_db)) -> Response:
 
     statement = (select(Profile.profile_id, Profile.first_name, Profile.last_name, Ranking.rank)
                  .join_from(Profile, Ranking)
                  .filter(Ranking.postcode == postalcode)
-                 .order_by(Ranking.postcode)
+                 .order_by(Ranking.rank.desc())
                  .limit(20))
+
+    if below:
+        statement = statement.filter(Ranking.rank < below)
 
     craftsmen = [Craftsman(id=row[0], name=f'{row[1]} {row[2]}', ranking_score=row[3]) for row in db.execute(statement)]
 
-    return Response(craftsmen=craftsmen)
+    return Response(craftsmen=craftsmen, below=craftsmen[-1].ranking_score)
 
 
 """

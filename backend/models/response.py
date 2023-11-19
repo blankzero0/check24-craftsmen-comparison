@@ -4,3 +4,4 @@ from models.craftsman import Craftsman
 
 class Response(BaseModel):
     craftsmen: list[Craftsman]
+    below: float | None
