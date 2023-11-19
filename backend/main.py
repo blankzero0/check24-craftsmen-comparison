@@ -1,8 +1,10 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
+from sqlalchemy import select
+from sqlalchemy.orm import Session
 
-from db.connection import session
-from db.postcode_model import Postcode
-from db.service_provider_profile_model import ServiceProviderProfile
+from db.connection import SessionLocal
+from db.profile import Profile
+from db.ranking import Ranking
 
 from models.craftsman import Craftsman
 from models.response import Response
@@ -22,11 +24,26 @@ interface Response {
 """
 
 
-@app.get("/craftman?postalcode={postalcode}", response_model=Response)
-def get_postalcode(postalcode: str):
-    craftsman_list: list[Craftsman] = []
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
-    return {"craftsmen": craftsman_list}
+
+@app.get("/craftman?postalcode={postalcode}")
+def get_postalcode(postalcode: str, db: Session = Depends(get_db)) -> Response:
+
+    statement = (select(Profile.profile_id, Profile.first_name, Profile.last_name, Ranking.rank)
+                 .join_from(Profile, Ranking)
+                 .filter(Ranking.postcode == postalcode)
+                 .order_by(Ranking.postcode)
+                 .limit(20))
+
+    craftsmen = [Craftsman(id=row[0], name=f'{row[1]} {row[2]}', ranking_score=row[3]) for row in db.execute(statement)]
+
+    return Response(craftsmen=craftsmen)
 
 
 """

@@ -8,6 +8,6 @@ Base = declarative_base()
 class Postcode(Base):
     __tablename__ = "postcode"
 
-    postcode = Column(String, primary_key=True)
-    geog = Column(Geometry(geometry_type='POINT', srid=4326))
-    dist_group = Column(String)
+    postcode = mapped_column(String, primary_key=True)
+    geog = mapped_column(Geometry(geometry_type='POINT', srid=4326))
+    dist_group = mapped_column(String)

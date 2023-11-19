@@ -10,6 +10,6 @@ Base = declarative_base()
 class Ranking(Base):
     __tablename__ = "ranking"
 
-    postcode = Column(String, ForeignKey(Postcode.postcode), primary_key=True)
-    profile_id = Column(Integer, ForeignKey(Profile.profile_id), primary_key=True)
-    rank = Column(Float)
+    postcode = mapped_column(String, ForeignKey(Postcode.postcode), primary_key=True)
+    profile_id = mapped_column(Integer, ForeignKey(Profile.profile_id), primary_key=True)
+    rank = mapped_column(Float)
