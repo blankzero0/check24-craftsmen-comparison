@@ -18,7 +18,7 @@ paths:
         - in: query
           name: below
           schema:
-            type: string
+            type: number
           required: false
           description: Only return the results with a score blow this value
       responses:
