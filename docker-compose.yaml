@@ -20,7 +20,7 @@ services:
   db:
     image: postgis/postgis:latest
     volumes:
-      - ./postgres/sql:/docker-entrypoint-initdb.d
+      - ./sql:/docker-entrypoint-initdb.d
       - data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: craftsmen
