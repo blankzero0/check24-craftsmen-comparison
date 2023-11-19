@@ -3,6 +3,7 @@ from sqlalchemy.orm import sessionmaker
 
 from models.postcode import Postcode
 from models.profile import Profile
+from models.ranking import Ranking
 
 
 if __name__ == '__main__':
@@ -13,6 +14,7 @@ if __name__ == '__main__':
     # create tables
     Postcode.__table__.create(engine)
     Profile.__table__.create(engine)
+    Ranking.__table__.create(engine)
 
     # commit
     session.commit()
