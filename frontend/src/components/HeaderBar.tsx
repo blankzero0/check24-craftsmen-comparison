@@ -16,12 +16,11 @@ function HeaderBar() {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
+                  Übersicht
                 </a>
                 <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="#">Action</a></li>
-                  <li><a className="dropdown-item" href="#">Another action</a></li>
-                  <li><a className="dropdown-item" href="#">Something </a></li>
+                  <li><a className="dropdown-item" href="/searchingCraftsman">Handwerker ändern</a></li>
+                  <li><a className="dropdown-item" href="#">Under construction</a></li>
                 </ul>
               </li>
               <li className="nav-item">

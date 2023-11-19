@@ -8,6 +8,10 @@ import Error from "./components/Error";
 import Listing from "./routes/listing";
 import './index.css'
 import {OpenAPI} from "./api";
+import Craftsman from './routes/change';
+import GetCraftman from './components/GetCraftman';
+import ChangeCraftman from './components/ChangeCraftman';
+import SearchingCraftsman from './routes/searchingCraftsman';
 
 if (process.env.REACT_APP_API_URL) {
   OpenAPI.BASE = process.env.REACT_APP_API_URL
@@ -25,8 +29,13 @@ const router = createBrowserRouter([
     errorElement: <Error/>,
   },
   {
-    path: '/listing',
-    element: <Listing/>,
+    path: '/craftsman',
+    element: <Craftsman/>,
+    errorElement: <Error/>,
+  },
+  {
+    path: '/searchingCraftsman',
+    element: <SearchingCraftsman/>,
     errorElement: <Error/>,
   },
 ])
