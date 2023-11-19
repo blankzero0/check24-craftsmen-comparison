@@ -1,6 +1,6 @@
 CREATE TABLE public.postcode (
 	postcode varchar NOT NULL,
-	geog geometry(point, 4326) NULL,
+	geog public.geometry(point, 4326) NULL,
 	dist_group varchar NULL,
 	CONSTRAINT postcode_pkey PRIMARY KEY (postcode)
 );
