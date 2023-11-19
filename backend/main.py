@@ -32,7 +32,7 @@ def get_db():
         db.close()
 
 
-@app.get("/craftman?postalcode={postalcode}")
+@app.get("/craftman")
 def get_postalcode(postalcode: str, db: Session = Depends(get_db)) -> Response:
 
     statement = (select(Profile.profile_id, Profile.first_name, Profile.last_name, Ranking.rank)

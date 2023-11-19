@@ -62,7 +62,7 @@ function CraftsmenList({ plz }: Props) {
       <ul className='d-grid gap-4 ps-0'>
         {craftsmen.map(craftsman => <CraftsmanCard key={craftsman.id} craftsman={craftsman}/>)}
       </ul>
-      <button onClick={updateCraftsmen} className='btn btn-primary'>Mehr anzeigen</button>
+      <button onClick={updateCraftsmen} className='btn btn-primary rounded-pill'>Mehr anzeigen</button>
     </div>
   );
 }

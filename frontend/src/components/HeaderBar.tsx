@@ -4,12 +4,34 @@ import {Link} from "react-router-dom";
 
 function HeaderBar() {
   return (
-    <header className='text-white py-4 mb-4' style={{backgroundColor: '#063773'}}>
-      <h1 className='container mb-0'>
-        <Link to='/'><img src={logo} alt='CHECK24 Logo' width='98' height='24' className='me-3' /></Link>
-        <span className="header-title fs-3">Handwerkervergleich</span>
-      </h1>
-    </header>
+    <nav className="navbar navbar-expand py-3 mb-4" style={{backgroundColor: '#063773'}}>
+        <div className="container">
+        <img src={logo} alt='CHECK24 Logo' width='98' height='24' className='me-3' />
+        
+          <form>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul className="dropdown-menu">
+                  <li><a className="dropdown-item" href="#">Action</a></li>
+                  <li><a className="dropdown-item" href="#">Another action</a></li>
+                  <li><a className="dropdown-item" href="#">Something </a></li>
+                </ul>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link text-white active" aria-current="page" href="/">Home</a>
+              </li>
+            </ul>
+          </div>
+            </form>
+        </div>
+      </nav>
   );
 }
 
