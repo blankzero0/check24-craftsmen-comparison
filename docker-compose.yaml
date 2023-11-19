@@ -12,12 +12,18 @@ services:
 
   backend:
     build: backend
+    environment:
+      POSTGRES_DB: craftmen
     ports:
       - "3000:80"
 
-  mysql:
-    build: mysql
-    env_file:
-      - ./mysql/mysql.env
+  db:
+    image: postgis/postgis:latest
     volumes:
-      - ./mysql/data:/var/lib/mysql
+      - ./postgres/sql:/docker-entrypoint-initdb.d
+      - data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: craftmen
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"
