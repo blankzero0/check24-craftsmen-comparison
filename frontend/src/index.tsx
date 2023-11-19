@@ -19,6 +19,11 @@ const router = createBrowserRouter([
     element: <Listing/>,
     errorElement: <Error/>,
   },
+  {
+    path: '/listing',
+    element: <Listing/>,
+    errorElement: <Error/>,
+  },
 ])
 
 const root = ReactDOM.createRoot(
